@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\build\\intermediates\\res\\merged\\debug\\layout\\activity_drawerlayout.xml",
+        "source": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\src\\main\\res\\layout\\activity_drawerlayout.xml"
+    },
+    {
+        "merged": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\build\\intermediates\\res\\merged\\debug\\layout\\activity_slidingpanellayout.xml",
+        "source": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\src\\main\\res\\layout\\activity_slidingpanellayout.xml"
+    },
+    {
+        "merged": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\build\\intermediates\\res\\merged\\debug\\layout\\activity_fold.xml",
+        "source": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\src\\main\\res\\layout\\activity_fold.xml"
+    },
+    {
+        "merged": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_left_menu.xml",
+        "source": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\src\\main\\res\\layout\\fragment_left_menu.xml"
+    },
+    {
+        "merged": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\build\\intermediates\\res\\merged\\debug\\layout\\item_left_menu.xml",
+        "source": "E:\\android\\android studio\\MyApplication\\WeChatAccount\\sample_FoldingLayout\\src\\main\\res\\layout\\item_left_menu.xml"
+    }
+]

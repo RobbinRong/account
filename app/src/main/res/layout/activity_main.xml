@@ -1,0 +1,30 @@
+<com.robbin.rong.account.view.FoldingDrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <!-- blur image -->
+    <ImageView
+        android:id="@+id/blur_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/left_drawer"
+        android:layout_width="240dip"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice" />
+
+</com.robbin.rong.account.view.FoldingDrawerLayout>

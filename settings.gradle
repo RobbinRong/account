@@ -1,0 +1,4 @@
+include ':app', 'library'
+include ':xutilslibrary'
+include ':viewPagerIndicator'
+include ':sample_FoldingLayout'

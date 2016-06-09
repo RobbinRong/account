@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.robbin.rong.account.view.NoSplashViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/vp_tab"
+        android:layout_weight="1"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/rg_tab"
+        android:orientation="horizontal"
+        android:background="#dddddd">
+        <RadioButton
+            style="@style/BottomTabStyle"
+            android:text="精选文章"
+            android:drawableTop="@drawable/btn_tab_home_selector"
+            android:id="@+id/td_artical"
+            />
+        <RadioButton
+            style="@style/BottomTabStyle"
+            android:text="公众号"
+            android:drawableTop="@drawable/btn_tab_news_selector"
+            android:id="@+id/td_account"
+            />
+
+
+    </RadioGroup>
+</LinearLayout>
