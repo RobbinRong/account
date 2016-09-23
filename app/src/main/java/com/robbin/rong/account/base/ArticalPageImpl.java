@@ -1,5 +1,6 @@
 package com.robbin.rong.account.base;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.widget.ImageButton;
 
 import com.robbin.rong.account.Global.GlobalConstant;
 import com.robbin.rong.account.R;
+import com.robbin.rong.account.SearchActivity;
 import com.robbin.rong.account.domain.ArticalCategory;
 import com.robbin.rong.account.fragment.ArticalFragment;
 import com.google.gson.Gson;
@@ -53,15 +55,15 @@ public class ArticalPageImpl extends BasePage implements ViewPager.OnPageChangeL
         tabPageIndicator= (TabPageIndicator) content.findViewById(R.id.tab_indicator);
         setSlidingMenuEnable(false);
         getDataFromServer();
-        btn_next = (ImageButton) content.findViewById(R.id.btn_next);
-        btn_next.setOnClickListener(new View.OnClickListener() {
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int n=viewPager.getCurrentItem();
-                Log.e(TAG, "onClick: "+n);
-                viewPager.setCurrentItem(++n);
+                Intent intent = new Intent(mActivity, SearchActivity.class);
+                intent.putExtra("iswhat","2");
+                mActivity.startActivity(intent);
             }
         });
+
     }
 
 
@@ -120,8 +122,12 @@ public class ArticalPageImpl extends BasePage implements ViewPager.OnPageChangeL
 
     @Override
     public void onPageSelected(int position) {
-        String typeId=typeList.get(position).id;
-        articalFragments.get(position).getDataFromHttp(false);
+        if(position>=typeList.size()){
+            return;
+        }
+            String typeId=typeList.get(position).id;
+            articalFragments.get(position).getDataFromHttp(false);
+
     }
 
     @Override

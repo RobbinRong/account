@@ -2,9 +2,10 @@ package com.robbin.rong.account;
 
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import com.robbin.rong.account.fragment.ContentFragment;
 import com.robbin.rong.account.fragment.LeftMenuFragment;
 import com.robbin.rong.account.view.BlurFoldingActionBarToggle;
 import com.robbin.rong.account.view.FoldingDrawerLayout;
+import com.umeng.analytics.MobclickAgent;
 
 
 public class MainActivity extends FragmentActivity {
@@ -23,7 +25,6 @@ public class MainActivity extends FragmentActivity {
     public FoldingDrawerLayout mDrawerLayout;
 
     FrameLayout contentLayout;
-
     ImageView blurImage;
 
     private BlurFoldingActionBarToggle mDrawerToggle;
@@ -32,6 +33,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDrawerLayout= (FoldingDrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         blurImage= (ImageView) findViewById(R.id.blur_image);
         contentLayout= (FrameLayout) findViewById(R.id.fl_content);
         mDrawerLayout.setScrimColor(Color.argb(100, 255, 255, 255));
@@ -80,5 +82,13 @@ public class MainActivity extends FragmentActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

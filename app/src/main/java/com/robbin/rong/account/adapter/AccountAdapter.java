@@ -44,34 +44,38 @@ public class AccountAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        View view;
+        ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView= LayoutInflater.from(context).inflate(R.layout.item_account,parent,false);
-            ViewHolder holder = new ViewHolder();
-            holder.pub_num= (TextView) convertView.findViewById(R.id.pub_num);
-            holder.wei_num= (TextView) convertView.findViewById(R.id.wei_num);
-            holder.code_2_img= (ImageView) convertView.findViewById(R.id.code_2_img);
-            holder.user_logo= (ImageView) convertView.findViewById(R.id.user_logo);
-            convertView.setTag(holder);
+            view= LayoutInflater.from(context).inflate(R.layout.item_account,parent,false);
+            viewHolder = new ViewHolder();
+            viewHolder.pub_num= (TextView) view.findViewById(R.id.pub_num);
+            viewHolder.wei_num= (TextView) view.findViewById(R.id.wei_num);
+            viewHolder.code_2_img= (ImageView) view.findViewById(R.id.code_2_img);
+            viewHolder.user_logo= (ImageView) view.findViewById(R.id.user_logo);
+            view.setTag(viewHolder);
         }
-        ViewHolder holder = (ViewHolder) convertView.getTag();
+        else {
+            view=convertView;
+            viewHolder= (ViewHolder) view.getTag();
+
+        }
         Account.Content account=data.get(position);
+        viewHolder.pub_num.setText(account.pubNum);
+        viewHolder.wei_num.setText(account.weiNum);
 
-
-        holder.pub_num.setText(account.pubNum);
-        holder.wei_num.setText(account.weiNum);
-
-        if (!account.userLogo.equals(holder.user_logo.getTag())) {
-            bitmapUtils.display( holder.user_logo,account.userLogo);
-            holder.user_logo.setTag(account.userLogo);
+        if (!account.userLogo.equals(viewHolder.user_logo.getTag())) {
+            bitmapUtils.display( viewHolder.user_logo,account.userLogo);
+            viewHolder.user_logo.setTag(account.userLogo);
 
         }
 
-        if (!account.code2img.equals(holder.code_2_img.getTag())) {
-            bitmapUtils.display( holder.code_2_img,account.code2img);
-            holder.code_2_img.setTag(account.code2img);
+        if (!account.code2img.equals(viewHolder.code_2_img.getTag())) {
+            bitmapUtils.display( viewHolder.code_2_img,account.code2img);
+            viewHolder.code_2_img.setTag(account.code2img);
 
         }
-        return convertView;
+        return view;
     }
     class ViewHolder {
         TextView pub_num,wei_num;

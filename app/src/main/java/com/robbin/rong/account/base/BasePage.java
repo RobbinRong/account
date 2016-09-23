@@ -2,6 +2,7 @@ package com.robbin.rong.account.base;
 
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class BasePage {
     public ImageButton btnMenu;
     public FrameLayout fl_content;
     public View mRootView;
+    public Button search;
     public BasePage(FragmentActivity mActivity) {
         this.mActivity = mActivity;
         initViews();
@@ -27,6 +29,7 @@ public class BasePage {
         tvTitle= (TextView) mRootView.findViewById(R.id.tv_title);
         btnMenu= (ImageButton) mRootView.findViewById(R.id.btn_menu);
         fl_content = (FrameLayout) mRootView.findViewById(R.id.fl_content);
+        search= (Button) mRootView.findViewById(R.id.search);
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

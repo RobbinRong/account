@@ -20,13 +20,12 @@ import java.util.List;
 public class ArticleAdapter extends BaseAdapter {
     private List<Artical.Content> data;
     private Context context;
-
     private BitmapUtils bitmapUtils;
 
     public ArticleAdapter(List<Artical.Content> data, Context context) {
         this.data = data;
         this.context = context;
-         bitmapUtils=new BitmapUtils(context);
+        this.bitmapUtils=new BitmapUtils(context);
     }
 
     @Override
@@ -46,35 +45,30 @@ public class ArticleAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        View view;
+        ViewHolder holder=null;
         if (convertView == null) {
-            convertView= LayoutInflater.from(context).inflate(R.layout.item_article,parent,false);
-            ViewHolder holder = new ViewHolder();
-            holder.userName= (TextView) convertView.findViewById(R.id.userName);
-            holder.title= (TextView) convertView.findViewById(R.id.title);
-            holder.userLogo= (ImageView) convertView.findViewById(R.id.userLogo);
-            holder.contentImg= (ImageView) convertView.findViewById(R.id.contentImg);
-            holder.date= (TextView) convertView.findViewById(R.id.date);
-            convertView.setTag(holder);
+            view= LayoutInflater.from(context).inflate(R.layout.item_article,parent,false);
+            holder = new ViewHolder();
+            holder.userName= (TextView) view.findViewById(R.id.userName);
+            holder.title= (TextView) view.findViewById(R.id.title);
+            holder.userLogo= (ImageView) view.findViewById(R.id.image);
+            holder.contentImg= (ImageView) view.findViewById(R.id.contentImg);
+            holder.date= (TextView) view.findViewById(R.id.desc);
+            view.setTag(holder);
         }
-        ViewHolder holder = (ViewHolder) convertView.getTag();
-        Artical.Content content=data.get(position);
+            else {
+            view=convertView;
+            holder= (ViewHolder) view.getTag();
 
-        holder.userName.setText(content.userName);
-        holder.title.setText(content.title);
-        holder.date.setText(content.date);
-       // if (!content.contentImg.equals(holder.contentImg.getTag())) {
+        }
+            Artical.Content content=data.get(position);
+            holder.userName.setText(content.userName);
+            holder.title.setText(content.title);
+            holder.date.setText(content.date);
             bitmapUtils.display( holder.contentImg,content.contentImg);
-            //holder.contentImg.setTag(content.contentImg);
-
-       // }
-
-        //if (!content.userLogo.equals(holder.userLogo.getTag())) {
             bitmapUtils.display( holder.userLogo,content.userLogo);
-        //    holder.userLogo.setTag(content.userLogo);
-
-     //   }
-
-        return convertView;
+        return view;
     }
     class ViewHolder {
         TextView userName,title,date;

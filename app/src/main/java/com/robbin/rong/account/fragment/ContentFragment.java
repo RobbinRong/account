@@ -2,16 +2,18 @@ package com.robbin.rong.account.fragment;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
-import com.robbin.rong.account.R;
-import com.robbin.rong.account.base.BasePage;
-import com.robbin.rong.account.base.AccountPage;
-import com.robbin.rong.account.base.ArticalPageImpl;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.robbin.rong.account.MainActivity;
+import com.robbin.rong.account.R;
+import com.robbin.rong.account.base.AccountPage;
+import com.robbin.rong.account.base.ArticalPageImpl;
+import com.robbin.rong.account.base.BasePage;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,7 @@ public class ContentFragment extends BaseFragment {
     private ArrayList<BasePage> pageList;
     private AccountPage accountPage;
     private ArticalPageImpl articalPage;
+
 
     @Override
     public View initViews() {
@@ -50,6 +53,7 @@ public class ContentFragment extends BaseFragment {
                 switch (i) {
                     case R.id.td_artical:
                         mViewPager.setCurrentItem(0, false);
+                        ((MainActivity)getActivity()).mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                         break;
                     case R.id.td_account:
                         mViewPager.setCurrentItem(1, false);

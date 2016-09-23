@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
 import com.robbin.rong.account.R;
 
 import java.text.SimpleDateFormat;
@@ -151,15 +150,11 @@ public class RefreshListView extends ListView implements AbsListView.OnScrollLis
 				break;
 			case STATE_REFRESHING:
 				startY=-1;
-
-
-
 				tvTitle.setText("正在刷新");
 				ivArrow.clearAnimation();
 				ivArrow.setVisibility(INVISIBLE);
+
 				pbProgress.setVisibility(VISIBLE);
-
-
 				if (mListener != null) {
 					mListener.onRefresh();
 				}
@@ -226,12 +221,12 @@ public class RefreshListView extends ListView implements AbsListView.OnScrollLis
 		mCurrrentState = STATE_PULL_REFRESH;
 		tvTitle.setText("下拉刷新");
 		ivArrow.setVisibility(View.VISIBLE);
-		//pbProgress.setVisibility(View.INVISIBLE);
+		pbProgress.setVisibility(View.INVISIBLE);
 
 		mHeaderView.setPadding(0, -mHeaderViewHeight, 0, 0);// 隐藏
 
 		if (success) {
-			tvTime.setText("最后刷新时间:" + getCurrentTime());
+			tvTime.setText(getCurrentTime());
 		}
 		}
 	}

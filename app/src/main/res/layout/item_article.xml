@@ -12,7 +12,7 @@
 
 
         <ImageView
-            android:id="@+id/userLogo"
+            android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
@@ -23,10 +23,10 @@
             android:layout_height="wrap_content"
             android:text="data"
             android:textSize="15sp"
-            android:id="@+id/date"
+            android:id="@+id/desc"
             android:layout_above="@+id/title"
             android:layout_alignLeft="@+id/userName"
-            android:layout_alignStart="@+id/userName" />
+            android:layout_alignStart="@+id/title" />
         <TextView
             android:id="@+id/userName"
             android:layout_width="wrap_content"
@@ -36,10 +36,10 @@
             android:textColor="#ff8000"
             android:text="username"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userLogo"
-            android:layout_toEndOf="@+id/userLogo"
+            android:layout_toRightOf="@+id/image"
+            android:layout_toEndOf="@+id/image"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="30dp"
             />
 
 
@@ -51,7 +51,7 @@
         android:textColor="#000"
         android:textSize="15sp"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/userLogo"
+        android:layout_below="@+id/image"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:maxLines="5"

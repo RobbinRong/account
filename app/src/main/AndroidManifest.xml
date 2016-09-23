@@ -4,14 +4,16 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name="com.robbin.rong.account.SplashActivity"
+            android:name=".SplashActivity"
             android:icon="@drawable/logo"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -22,17 +24,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.robbin.rong.account.GuideActivity"
+            android:name=".GuideActivity"
             android:label="@string/title_activity_guide"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name="com.robbin.rong.account.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.PageIndicatorDefaults" />
-        <activity android:name="com.robbin.rong.account.ArticleWeb" />
-        <activity android:name="com.robbin.rong.account.ImageActivity"
-            android:theme="@android:style/Theme.Translucent"
-            ></activity>
+            android:theme="@style/CustomePageIndicatorDefaults" />
+        <activity android:name=".ArticleWeb" />
+        <activity
+            android:name=".ImageActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>

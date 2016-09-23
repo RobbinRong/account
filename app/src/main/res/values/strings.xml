@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">公众号助手</string>
+    <string name="app_name">微信阅读</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_guide">GuideActivity</string>
     <string name="title_activity_main">MainActivity</string>

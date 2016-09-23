@@ -39,7 +39,6 @@ import java.util.Date;
  */
 public class TabAccountDetailPager extends BaseMenuDetailPager {
 
-    private Account account;
     private AccountAdapter accountAdapter;
     private AccountCateory.Child mTabData;
     private int firstItem;
@@ -55,6 +54,11 @@ public class TabAccountDetailPager extends BaseMenuDetailPager {
                 getDataFromServer(false);
                 Log.e("rjb", "onRefresh: 下拉刷新");
                 lvList.onRefreshComplete(true);
+            }
+            if(msg.what==2){
+                page++;
+                getDataFromServer(true);
+                lvList.onRefreshComplete(true);// 收起加载更多的布局
             }
 
         }
@@ -78,7 +82,7 @@ public class TabAccountDetailPager extends BaseMenuDetailPager {
                     @Override
                     public void run() {
                         try {
-                            Thread.sleep(3000);
+                            Thread.sleep(2000);
                             Message obtain = Message.obtain();
                             obtain.what = 1;
                             handler.sendMessage(obtain);
@@ -92,15 +96,22 @@ public class TabAccountDetailPager extends BaseMenuDetailPager {
 
             @Override
             public void onLoadMore() {
-                page++;
-                getDataFromServer(true);
-                firstItem= lvList.getFirstVisiblePosition();
-                Log.e("rjb", "onLoadMore: "+firstItem);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                            Message obtain = Message.obtain();
+                            obtain.what = 2;
+                            handler.sendMessage(obtain);
 
-                accountAdapter.notifyDataSetChanged();
-                lvList.setSelection(firstItem);
-                accountAdapter.notifyDataSetChanged();
-                lvList.onRefreshComplete(false);// 收起加载更多的布局
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+
+
 
             }
         });
@@ -146,6 +157,7 @@ public class TabAccountDetailPager extends BaseMenuDetailPager {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 String result = responseInfo.result;
+                Log.e("rjb", "onSuccess: "+result );
                 parseData(result,is);
             }
 
@@ -160,15 +172,20 @@ public class TabAccountDetailPager extends BaseMenuDetailPager {
 
     public void parseData(String result,boolean isMore) {
         Gson gson=new Gson();
-        account = gson.fromJson(result, Account.class);
+        Account account = gson.fromJson(result, Account.class);
         if(isMore){
             contentlist.addAll(account.showapi_res_body.pagebean.contentlist);
+            accountAdapter.notifyDataSetChanged();
         }
         else {
-            contentlist=account.showapi_res_body.pagebean.contentlist;
+         if(null!=account.showapi_res_body.pagebean.contentlist){
+             contentlist=account.showapi_res_body.pagebean.contentlist;
+             accountAdapter = new AccountAdapter(contentlist, mActivity);
+             lvList.setAdapter(accountAdapter);
+         }
+
+
         }
-        accountAdapter = new AccountAdapter(contentlist, mActivity);
-        lvList.setAdapter(accountAdapter);
 
 
     }

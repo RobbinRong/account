@@ -6,11 +6,10 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.robbin.rong.account.R;
-import com.robbin.rong.account.domain.AccountCateory;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.robbin.rong.account.R;
+import com.robbin.rong.account.domain.AccountCateory;
 import com.viewpagerindicator.TabPageIndicator;
 
 import java.util.ArrayList;
@@ -37,12 +36,12 @@ public class AccountDetailPager extends BaseMenuDetailPager{
         ViewUtils.inject(this,view);
         return view;
     }
-    @OnClick(R.id.btn_next)
+   /* @OnClick(R.id.btn_next)
     public  void next(View view){
         int n=viewPager.getCurrentItem();
         viewPager.setCurrentItem(++n);
 
-    }
+    }*/
     @Override
     public void initData() {
         list=new ArrayList<TabAccountDetailPager>();

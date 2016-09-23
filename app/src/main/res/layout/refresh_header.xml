@@ -6,6 +6,7 @@
     android:gravity="center"
     >
 
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,15 +16,15 @@
 
         <ImageView
             android:id="@+id/iv_arr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:src="@drawable/common_listview_headview_red_arrow" />
 
         <ProgressBar
             android:id="@+id/pb_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
             android:visibility="invisible" />
     </FrameLayout>
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="下拉刷新"
             android:textColor="#398dee"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tv_time"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:text="2015-03-10 17:07:07"
             android:textColor="@android:color/darker_gray"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 
 </LinearLayout>

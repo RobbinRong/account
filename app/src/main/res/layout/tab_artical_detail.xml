@@ -16,14 +16,14 @@
             android:visibility="gone"
             />
 
-        <ImageButton
+       <!-- <ImageButton
             android:id="@+id/btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
             android:padding="5dp"
-            android:src="@drawable/news_cate_arr" />
+            android:src="@drawable/news_cate_arr" />-->
     </LinearLayout>
 
 

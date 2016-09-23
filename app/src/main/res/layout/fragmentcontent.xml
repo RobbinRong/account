@@ -20,13 +20,11 @@
         android:background="#dddddd">
         <RadioButton
             style="@style/BottomTabStyle"
-            android:text="精选文章"
             android:drawableTop="@drawable/btn_tab_home_selector"
             android:id="@+id/td_artical"
             />
         <RadioButton
             style="@style/BottomTabStyle"
-            android:text="公众号"
             android:drawableTop="@drawable/btn_tab_news_selector"
             android:id="@+id/td_account"
             />

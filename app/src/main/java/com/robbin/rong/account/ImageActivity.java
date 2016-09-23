@@ -20,4 +20,5 @@ public class ImageActivity extends Activity {
         bitmapUtils = new BitmapUtils(this);
         bitmapUtils.display(code2,code2Url);
     }
+
 }

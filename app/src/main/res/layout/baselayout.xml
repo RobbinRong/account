@@ -29,7 +29,14 @@
         android:layout_centerVertical="true"
         android:id="@+id/btn_menu"
         />
-
+<Button
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:id="@+id/search"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/ic_menu_search_holo_dark"
+    />
 </RelativeLayout>
     <FrameLayout
         android:layout_width="match_parent"

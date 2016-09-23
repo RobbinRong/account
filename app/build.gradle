@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -28,4 +27,6 @@ dependencies {
     compile project(':viewPagerIndicator')
     compile files('libs/volly-1.0.11.jar')
     compile files('libs/nineoldandroids-2.4.0.jar')
+    compile 'com.umeng.analytics:analytics:latest.integration'
+
 }
